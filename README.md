@@ -41,3 +41,12 @@ See `ibuffer-vc.el`, or (preferred) install from [MELPA][MELPA].
 [✍ sanityinc.com](http://www.sanityinc.com/)
 
 [🐦 @sanityinc](https://twitter.com/sanityinc)
+
+## Notes for Derek ##
+1. Manually generate the ibuffer-vc-autoloads.el file by running (update-directory-autoloads)
+
+2. Steve Purcell's autoload file contains a statement to add the module path to the load path:
+   (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+        a. Need to figure out how to add this automatically to ours
+        b. Need to remove pre-existing from load-path

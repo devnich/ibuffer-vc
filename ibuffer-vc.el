@@ -152,7 +152,7 @@ If the file is not under version control, nil is returned instead."
 (defun ibuffer-vc-generate-filter-groups-by-vc-root ()
   "Create a set of ibuffer filter groups based on the vc root dirs of buffers."
   (let ((roots (ibuffer-remove-duplicates
-                (delq nil (mapcar 'ibuffer-vc-root (buffer-list))))))
+                (delq nil (mapcar 'ibuffer-vc-root (sort (buffer-list) #'(lambda (a b) (string< (buffer-name a) (buffer-name b)))))))))
     (mapcar (lambda (vc-root)
               (cons (format "%s: %s" (car vc-root) (cdr vc-root))
                     `((vc-root . ,vc-root))))
