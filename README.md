@@ -42,11 +42,9 @@ See `ibuffer-vc.el`, or (preferred) install from [MELPA][MELPA].
 
 [🐦 @sanityinc](https://twitter.com/sanityinc)
 
-## Notes for Derek ##
-1. Manually generate the ibuffer-vc-autoloads.el file by running (update-directory-autoloads)
-
-2. Steve Purcell's autoload file contains a statement to add the module path to the load path:
-   (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
-
-        a. Need to figure out how to add this automatically to ours
-        b. Need to remove pre-existing from load-path
+## How to install alternative non-ELPA package ##
+1. Install in /.emacs.d/site-lisp/
+2. Manually generate the ibuffer-vc-autoloads.el file by running (update-directory-autoloads)
+3. Manually byte-compile ibuffer-vc.el
+4. Remove ELPA version (which will always load first) via (package-list-packages)
+5. Update init-ibuffer.el to remove (require-package) statement, which automatically downloads the package from ELPA
